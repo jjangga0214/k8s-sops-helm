@@ -34,7 +34,7 @@ helm upgrade --install \
 
 ```yaml
 data:
-  .env: { { .Values.dotenv | b64enc } }
+  .env: {{ .Values.dotenv | b64enc }}
 ```
 
 `k8s/demo/templates/deployment.yaml` create a volume from secret and mount `.env` to `/secret/.env`
