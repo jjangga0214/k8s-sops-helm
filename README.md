@@ -66,7 +66,7 @@ helm upgrade --install \
   --dry-run
 ```
 
-This will show base64-encoded `.env`. Of course, k8s will write decrypted content to volume.
+This will show base64-encoded `.env`. Of course, k8s will write decoded content to volume.
 
 ```yaml
 data:
