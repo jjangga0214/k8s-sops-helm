@@ -84,7 +84,7 @@ echo "SEVMTE89IndvcmxkIgpIST0idGhlcmUi" | base64 -d
 You can copy and paste this.
 
 ```bash
-sops -d k8s/.env.prod > prod.decrypted.env \
+sops -d k8s/prod.env > prod.decrypted.env \
 && \
 helm upgrade --install \
   -f ./k8s/values/prod/demo.yaml \
@@ -93,3 +93,7 @@ helm upgrade --install \
 && \
 rm prod.decrypted.env
 ```
+
+## Credit
+
+This repo is influenced by [cloudnativedevops/demo/hello-sops](https://github.com/cloudnativedevops/demo/tree/master/hello-sops), but modified configuration (e.g. `--set-file` instead of `.Files.Get`).
