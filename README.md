@@ -54,7 +54,7 @@ rm prod.decrypted.env
 
 <!-- markdownlint-enable ol-prefix -->
 
-### Quick Check
+## Quick Check
 
 To see the rendered manifest files without actually applying to cluster, run with `--dry-run`.
 
@@ -79,7 +79,7 @@ To decrypt for verification, you can run this.
 echo "SEVMTE89IndvcmxkIgpIST0idGhlcmUi" | base64 -d
 ```
 
-### One liner
+## One liner
 
 You can copy and paste this.
 
@@ -89,9 +89,24 @@ sops -d k8s/prod.env > prod.decrypted.env \
 helm upgrade --install \
   -f ./k8s/values/prod/demo.yaml \
   --set-file dotenv=./k8s/prod.decrypted.env \
-  staging-demo ./k8s/demo \
+  production-demo ./k8s/demo \
 && \
 rm prod.decrypted.env
+```
+
+## helmfile
+
+[`helmfile`](https://github.com/roboll/helmfile) supports `--set-file` as well.
+
+```yaml
+releases:
+  - name: production-demo
+    chart: k8s/demo
+    values:
+    - k8s/values/prod/demo.yaml
+    set: # this is same as `--set-file dotenv=./k8s/prod.decrypted.env`
+    - name: dotenv
+      file: k8s/prod.decrypted.env
 ```
 
 ## Credit
