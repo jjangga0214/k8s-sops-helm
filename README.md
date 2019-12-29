@@ -3,7 +3,7 @@
 This example explains how to feed `.env`(`dotenv`) to k8s secrets with `helm` and [`sops`](https://github.com/mozilla/sops). But other formats(e.g. `yaml`, `json`, etc) can be used (Refer to `sops` docs for more detail).
 
 There are `k8s/staging.env` and `k8s/prod.env`.
-Both of them are `dotenv` files, and encrypted by `pgp`.
+Both of them are `dotenv` files, and encrypted by `sops`(using `PGP`).
 And there's a helm chart `demo`(`k8s/demo`).
 
 _(Though there are `k8s/staging.decrypted.env` and `k8s/prod.decrypted.env` for your convenience, they(raw secret) are not to be committed by version control in real situation)_
@@ -18,7 +18,7 @@ you take 3 steps below.
 1. Decrypt secret(dotenv file) and make a temporary file.
 
 ```bash
-sops -d k8s/prod.env > prod.decrypted.env
+sops -d k8s/prod.env > k8s/prod.decrypted.env
 ```
 
 2. Use `--set-file` option of `helm`. In this example, `--set-file` create helm value named `dotenv`, which is not specified in `./k8s/values/prod/demo.yaml`.
