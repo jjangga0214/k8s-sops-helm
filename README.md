@@ -96,4 +96,4 @@ rm prod.decrypted.env
 
 ## Credit
 
-This repo is influenced by [cloudnativedevops/demo/hello-sops](https://github.com/cloudnativedevops/demo/tree/master/hello-sops), but modified configurations (e.g. `--set-file` instead of `.Files.Get`).
+This repo is influenced by [cloudnativedevops/demo/hello-sops](https://github.com/cloudnativedevops/demo/tree/master/hello-sops), but modified configurations (e.g. `--set-file` and `.Values` instead of `.Files.Get`). There is an open discussion about this modified approach, [cloudnativedevops/demo#21](https://github.com/cloudnativedevops/demo/issues/21).
