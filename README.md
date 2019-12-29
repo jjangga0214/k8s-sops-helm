@@ -2,10 +2,11 @@
 
 This example explains how to feed `.env`(`dotenv`) to k8s secrets with helm.
 
-The main strategy is like this.
 There are `k8s/staging.env` and `k8s/prod.env`.
 Both of them are `dotenv` files, and encrypted by `pgp`.
 And there's a helm chart `demo`(`k8s/demo`).
+
+*(Though there are `k8s/staging.decrypted.env` and `k8s/prod.decrypted.env` for your convenience, they(raw secret) are not to be committed by version control in real situation)*
 
 When you want to deploy `demo` to `production` environment(e.g. cluster or namespace),
 you take 3 steps below.
