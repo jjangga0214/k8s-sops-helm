@@ -111,4 +111,4 @@ releases:
 
 ## Credit
 
-This repo is influenced by [cloudnativedevops/demo/hello-sops](https://github.com/cloudnativedevops/demo/tree/master/hello-sops), but modified configurations (e.g. `--set-file` and `.Values` instead of `.Files.Get`). There is an open discussion about this modified approach, [cloudnativedevops/demo#21](https://github.com/cloudnativedevops/demo/issues/21).
+This repo is influenced by [cloudnativedevops/demo/hello-sops](https://github.com/cloudnativedevops/demo/tree/master/hello-sops), but modified configurations (e.g. `--set-file` and `.Values` instead of `.Files.Get`, for secret's independence from chart). There is an open discussion about this modified approach, [cloudnativedevops/demo#21](https://github.com/cloudnativedevops/demo/issues/21).
